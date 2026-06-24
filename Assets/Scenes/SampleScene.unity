@@ -486,6 +486,7 @@ GameObject:
   - component: {fileID: 152523954}
   - component: {fileID: 152523953}
   - component: {fileID: 152523956}
+  - component: {fileID: 152523957}
   m_Layer: 0
   m_Name: Dolly Spline
   m_TagString: Untagged
@@ -522,33 +523,15 @@ MonoBehaviour:
   - m_EditModeType: 1
     m_Knots:
     - Position:
-        x: 4.06
-        y: -0.1499939
-        z: 0
+        x: 20
+        y: 43.800003
+        z: 1
       TangentIn:
         x: 0
-        y: 0
-        z: -10.347801
-      TangentOut:
-        x: 0
-        y: 0
-        z: 10.347801
-      Rotation:
-        value:
-          x: 0.70441604
-          y: 0.061627805
-          z: 0.061628927
-          w: 0.70441604
-    - Position:
-        x: -6.58
-        y: 3.9500046
-        z: 2
-      TangentIn:
-        x: 0
-        y: 0
+        y: -0
         z: -0
       TangentOut:
-        x: 0
+        x: -0
         y: 0
         z: 0
       Rotation:
@@ -558,16 +541,34 @@ MonoBehaviour:
           z: 0
           w: 1
     - Position:
-        x: -12.14
-        y: -1.83
-        z: 0
+        x: -8
+        y: 45.800003
+        z: 0.45957896
       TangentIn:
-        x: 0
-        y: 0
+        x: 1.0475084
+        y: 5.2099605
         z: -0
       TangentOut:
-        x: 0
-        y: 0
+        x: -1.0475084
+        y: -5.2099605
+        z: 0
+      Rotation:
+        value:
+          x: 0
+          y: 0
+          z: 0
+          w: 1
+    - Position:
+        x: 4
+        y: 14.800003
+        z: 0.0019982157
+      TangentIn:
+        x: 8.479589
+        y: 1.1306144
+        z: -0
+      TangentOut:
+        x: -8.479589
+        y: -1.1306144
         z: 0
       Rotation:
         value:
@@ -576,11 +577,11 @@ MonoBehaviour:
           z: 0
           w: 1
     m_MetaData:
-    - Mode: 2
+    - Mode: 4
       Tension: 0.5
-    - Mode: 2
+    - Mode: 4
       Tension: 0.5
-    - Mode: 2
+    - Mode: 4
       Tension: 0.5
     m_Closed: 0
     m_IntData:
@@ -615,7 +616,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 152523949}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e99ac1c1a8992dc4ab9f3256817ec54f, type: 3}
   m_Name: 
@@ -623,7 +624,7 @@ MonoBehaviour:
   sourceSplineContainer: {fileID: 152523951}
   targetSpriteShape: {fileID: 152523954}
   updateInEditMode: 1
-  bob: 1
+  bob: 0
   test_divide: 540
   direction_test:
     x: -1
@@ -644,25 +645,25 @@ MonoBehaviour:
   m_Spline:
     m_IsOpenEnded: 1
     m_ControlPoints:
-    - position: {x: 4, y: 0, z: 0}
+    - position: {x: 20, y: 43.800003, z: 1}
       leftTangent: {x: 0, y: 0, z: 0}
-      rightTangent: {x: 2, y: 10, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: -8, y: 45.800003, z: 0.45957896}
+      leftTangent: {x: 1.2874279, y: 5.1497116, z: 0.31536737}
+      rightTangent: {x: -1, y: -4, z: -0.24495922}
       mode: 1
       height: 1
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: -6.58, y: 3.9500046, z: 1}
-      leftTangent: {x: 2.7139106, y: -1.0132294, z: -0.25651336}
-      rightTangent: {x: 0, y: 0, z: 0}
-      mode: 1
-      height: 1
-      spriteIndex: 0
-      corner: 1
-      m_CornerMode: 1
-    - position: {x: -12.14, y: -1.83, z: 0}
-      leftTangent: {x: 0, y: 0, z: 0}
-      rightTangent: {x: 0, y: 0, z: 0}
+    - position: {x: 4, y: 14.800003, z: 0.0019982157}
+      leftTangent: {x: 8.47959, y: 1.1306152, z: 0}
+      rightTangent: {x: -0.516695, y: -0.06889343, z: 0}
       mode: 1
       height: 1
       spriteIndex: 0
@@ -749,8 +750,8 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   m_LocalAABB:
-    m_Center: {x: -3.9663563, y: 1.7746246, z: 0}
-    m_Extent: {x: 8.393492, y: 3.8231006, z: 0}
+    m_Center: {x: 6.0034914, y: 31.20832, z: 0}
+    m_Extent: {x: 14.177671, y: 16.636387, z: 0}
   m_SpriteSortPoint: 0
 --- !u!114 &152523956
 MonoBehaviour:
@@ -774,6 +775,27 @@ MonoBehaviour:
     z: 1
   pointID: 0
   RTTest: {x: 2, y: 10, z: 0}
+--- !u!114 &152523957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152523949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ed604e1890b35444bdbeebeec260faa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetSplineContainer: {fileID: 152523951}
+  sourceSpriteShape: {fileID: 152523954}
+  updateInEditMode: 1
+  bob: 1
+  test_divide: 100
+  direction_test:
+    x: 0
+    y: 0
+    z: 1
 --- !u!1 &164248668
 GameObject:
   m_ObjectHideFlags: 0
