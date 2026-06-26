@@ -521,17 +521,17 @@ MonoBehaviour:
   - m_EditModeType: 1
     m_Knots:
     - Position:
-        x: -9
-        y: 24.800003
+        x: 24
+        y: 44
         z: 1
       TangentIn:
-        x: 9.000001
-        y: 5
+        x: 0
+        y: 0
         z: 0
       TangentOut:
-        x: -9.000001
-        y: -5
-        z: -0
+        x: -0.00000017484555
+        y: -4
+        z: 0
       Rotation:
         value:
           x: 0
@@ -540,16 +540,16 @@ MonoBehaviour:
           w: 1
     - Position:
         x: -8
-        y: 45.800003
+        y: 39
         z: 0.45957896
       TangentIn:
-        x: 0.9999998
-        y: 3.9999998
+        x: 4
+        y: -3
         z: 0
       TangentOut:
-        x: -0.9999998
-        y: -3.9999998
-        z: -0
+        x: -5
+        y: 2.0000002
+        z: 0
       Rotation:
         value:
           x: 0
@@ -558,15 +558,15 @@ MonoBehaviour:
           w: 1
     - Position:
         x: -33
-        y: 46.800003
+        y: 46
         z: 0.0019982157
       TangentIn:
-        x: 1.0000001
-        y: -10
-        z: -0
+        x: -0.00000021855695
+        y: 5
+        z: 0
       TangentOut:
-        x: -1.0000001
-        y: 10
+        x: -0.000000022785136
+        y: -0.5212631
         z: 0
       Rotation:
         value:
@@ -624,25 +624,25 @@ MonoBehaviour:
   m_Spline:
     m_IsOpenEnded: 1
     m_ControlPoints:
-    - position: {x: -9, y: 24.800003, z: 1}
+    - position: {x: 24, y: 44, z: 1}
       leftTangent: {x: 0, y: 0, z: 0}
-      rightTangent: {x: -9, y: -5, z: 0}
+      rightTangent: {x: 0, y: -4, z: 0}
       mode: 2
       height: 1
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: -8, y: 45.800003, z: 0.45957896}
-      leftTangent: {x: 1.2874279, y: 5.1497116, z: 0}
-      rightTangent: {x: -1, y: -4, z: 0}
-      mode: 1
+    - position: {x: -8, y: 39, z: 0.45957896}
+      leftTangent: {x: 4, y: -3, z: 0}
+      rightTangent: {x: -5, y: 2, z: 0}
+      mode: 2
       height: 1
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: -33, y: 46.800003, z: 0.0019982157}
-      leftTangent: {x: 1, y: -10, z: 0}
-      rightTangent: {x: -0.05186844, y: 0.51867676, z: 0}
+    - position: {x: -33, y: 46, z: 0.0019982157}
+      leftTangent: {x: 0, y: 5, z: 0}
+      rightTangent: {x: 0, y: -0.5212631, z: 0}
       mode: 1
       height: 1
       spriteIndex: 0
@@ -729,8 +729,8 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   m_LocalAABB:
-    m_Center: {x: -20.521877, y: 35.51208, z: 0}
-    m_Extent: {x: 12.690663, y: 11.431457, z: 0}
+    m_Center: {x: -4.4910316, y: 42.672302, z: 0}
+    m_Extent: {x: 28.728329, y: 4.891691, z: 0}
   m_SpriteSortPoint: 0
 --- !u!114 &152523957
 MonoBehaviour:
@@ -1592,7 +1592,7 @@ Transform:
   m_GameObject: {fileID: 615067887}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -33, y: 46, z: 0.0019982157}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13069,7 +13069,7 @@ Transform:
   m_GameObject: {fileID: 1539510884}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 24, y: 44, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
