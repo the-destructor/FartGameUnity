@@ -7,6 +7,8 @@ TagManager:
   - CollectableFuel
   - Kill
   - CollectableAutoFart
+  - PipeStart
+  - PipeEnd
   layers:
   - Default
   - TransparentFX

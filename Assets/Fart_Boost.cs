@@ -105,6 +105,14 @@ public class Fart_Boost : MonoBehaviour
         {
             StartCoroutine(AutoFart(other));
         }
+        if (other.CompareTag("PipeStart"))
+        {
+            StartCoroutine(AutoFart(other));
+        }
+        if (other.CompareTag("PipeEnd"))
+        {
+            StartCoroutine(AutoFart(other));
+        }
     }
 
     private void DeathFunction()
