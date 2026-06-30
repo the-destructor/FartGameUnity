@@ -369,6 +369,7 @@ GameObject:
   - component: {fileID: 69314936}
   - component: {fileID: 69314938}
   - component: {fileID: 69314939}
+  - component: {fileID: 69314940}
   m_Layer: 0
   m_Name: CinemachineCamera
   m_TagString: Untagged
@@ -428,7 +429,7 @@ Transform:
   m_GameObject: {fileID: 69314935}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 2.5, y: 48.9, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -472,6 +473,40 @@ MonoBehaviour:
   minZoom: 5
   maxZoom: 10
   zoomSmoothTime: 10
+--- !u!114 &69314940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69314935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90eebaab98e4b44b0ba8c79821e554e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SplineSettings:
+    Spline: {fileID: 0}
+    Position: 0
+    Units: 1
+  SplineOffset: {x: 0, y: 0, z: 0}
+  CameraRotation: 0
+  Damping:
+    Enabled: 0
+    Position: {x: 0, y: 0, z: 0}
+    Angular: 0
+  AutomaticDolly:
+    Enabled: 0
+    Method:
+      rid: -2
+  m_LegacyPosition: -1
+  m_LegacyUnits: 0
+  m_LegacySpline: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!1 &152523949
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,8 +517,8 @@ GameObject:
   m_Component:
   - component: {fileID: 152523952}
   - component: {fileID: 152523951}
-  - component: {fileID: 152523955}
   - component: {fileID: 152523954}
+  - component: {fileID: 152523955}
   - component: {fileID: 152523957}
   m_Layer: 0
   m_Name: Dolly Spline
@@ -557,16 +592,16 @@ MonoBehaviour:
           z: 0
           w: 1
     - Position:
-        x: -33
-        y: 46
-        z: 0.0019982157
+        x: -31.6
+        y: 48.1
+        z: 0.0019989014
       TangentIn:
-        x: -0.00000021855695
-        y: 5
+        x: -5.999998
+        y: -5.0000005
         z: 0
       TangentOut:
-        x: -0.000000022785136
-        y: -0.5212631
+        x: 0.40047833
+        y: 0.3337326
         z: 0
       Rotation:
         value:
@@ -601,7 +636,7 @@ Transform:
   m_GameObject: {fileID: 152523949}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 50, z: 0}
+  m_LocalPosition: {x: -21.4, y: 9.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -640,9 +675,9 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: -33, y: 46, z: 0.0019982157}
-      leftTangent: {x: 0, y: 5, z: 0}
-      rightTangent: {x: 0, y: -0.5212631, z: 0}
+    - position: {x: -31.6, y: 48.1, z: 0.0019989014}
+      leftTangent: {x: -5.999998, y: -5, z: 0}
+      rightTangent: {x: 0.40047836, y: 0.3337326, z: 0}
       mode: 1
       height: 1
       spriteIndex: 0
@@ -729,8 +764,8 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   m_LocalAABB:
-    m_Center: {x: -4.4910316, y: 42.672302, z: 0}
-    m_Extent: {x: 28.728329, y: 4.891691, z: 0}
+    m_Center: {x: -4.2119827, y: 43.05925, z: 0}
+    m_Extent: {x: 28.449284, y: 5.278637, z: 0}
   m_SpriteSortPoint: 0
 --- !u!114 &152523957
 MonoBehaviour:
@@ -1212,7 +1247,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 2.5, y: 48.9, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1592,7 +1627,7 @@ Transform:
   m_GameObject: {fileID: 615067887}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -33, y: 46, z: 0.0019982157}
+  m_LocalPosition: {x: -31.6, y: 48.1, z: 0.0019989014}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13233,6 +13268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera1: {fileID: 0}
+  bcollider: {fileID: 1671421779}
   rb: {fileID: 1671421778}
   FartPower: 3
   maxRotationSpeed: 360
@@ -13244,6 +13280,21 @@ MonoBehaviour:
   background: {fileID: 1026696347}
   slowdownspeed: 0.5
   trail: {fileID: 1671421782}
+  CurrentPath:
+    m_EditModeType: 1
+    m_Knots: []
+    m_MetaData: []
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  PathPos: {fileID: 0}
+  PathSpeed: 60
 --- !u!50 &1671421778
 Rigidbody2D:
   serializedVersion: 5
@@ -13326,7 +13377,7 @@ Transform:
   m_GameObject: {fileID: 1671421776}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2.5, y: 48.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

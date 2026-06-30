@@ -1,13 +1,18 @@
 using System.Collections;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.Splines;
+using UnityEngine.U2D;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 using static UnityEngine.Rendering.DebugUI;
 
 public class Fart_Boost : MonoBehaviour
 {
     public Camera camera1;
+    public BoxCollider2D bcollider;
     public Rigidbody2D rb;
     public float FartPower;
     public float maxRotationSpeed = 45;
@@ -15,14 +20,18 @@ public class Fart_Boost : MonoBehaviour
     public ParticleSystem ultrafart;
     public float ShiftCoyoteTime;
     private float ShiftCoyoteTimer = 0;
-    public Slider FartMeter;
+    public UnityEngine.UI.Slider FartMeter;
     public float InitialFartAmount = 10;
     private float FartAmount;
-    public Slider background;
+    public UnityEngine.UI.Slider background;
     private float DampVelocity = 0;
     private Vector3 spawn_position;
     public float slowdownspeed = 1f;
     public TrailRenderer trail;
+    public UnityEngine.Splines.Spline CurrentPath;
+    public Transform PathPos;
+    public float PathSpeed = 0.001f;
+    private float st = 0f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -38,6 +47,7 @@ public class Fart_Boost : MonoBehaviour
         if (FartAmount > 10)
             FartAmount = 10;
         FartMeter.value = FartAmount;
+        SplineUpdate(CurrentPath, PathPos);
         SliderValueSmoothAwesomeDropEffect();
         rb.angularVelocity = Mathf.Clamp(rb.angularVelocity, -maxRotationSpeed, maxRotationSpeed);
         CountDownShiftTime();
@@ -65,6 +75,34 @@ public class Fart_Boost : MonoBehaviour
         }
     }
 
+    void SplineUpdate(UnityEngine.Splines.Spline spline, Transform pipePos)
+    {
+        if (spline == null || pipePos == null) 
+        {
+            st = 0;
+            bcollider.isTrigger = false;
+            return;
+        }
+        bcollider.isTrigger = true;
+        // Move forward along spline
+        st += PathSpeed * Time.deltaTime / spline.GetLength();
+        st = Mathf.Clamp01(st);
+
+        // --- Position ---
+        Vector3 pos = spline.EvaluatePosition(st);
+        print(pos);
+        transform.position = pos + pipePos.position;
+        print("onspline");
+        if (st == 1)
+        {
+            float3 tan = spline.EvaluateTangent(st);
+            Vector3 tangent = new Vector3(tan.x, tan.y, tan.z).normalized;
+            rb.linearVelocity = Vector3.zero;
+            rb.AddForce(tangent * 10, ForceMode2D.Impulse);
+            CurrentPath = null;
+            PathPos = null;
+        }
+    }
     void SliderValueSmoothAwesomeDropEffect()
     {
         background.value = Mathf.SmoothDamp(background.value, FartAmount, ref DampVelocity, 0.2f);
@@ -107,7 +145,9 @@ public class Fart_Boost : MonoBehaviour
         }
         if (other.CompareTag("PipeStart"))
         {
-            StartCoroutine(AutoFart(other));
+            SplineContainer spline = other.GetComponentInParent<SplineContainer>();
+            CurrentPath = spline.Spline;
+            PathPos = other.transform.parent;
         }
         if (other.CompareTag("PipeEnd"))
         {
