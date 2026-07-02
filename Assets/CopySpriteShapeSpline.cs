@@ -13,8 +13,6 @@ public class CopySpriteShapeSpline : MonoBehaviour
 
     public bool updateInEditMode = true;
     public bool RecalculateCompleted = false;
-    public float test_divide = 100f;
-    public float3 direction_test = new float3(0f, 0f, 1f);
 
     public GameObject PipeStartObj;
     public GameObject PipeEndObj;

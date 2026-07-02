@@ -32,6 +32,9 @@ public class Fart_Boost : MonoBehaviour
     public Transform PathPos;
     public float PathSpeed = 0.001f;
     private float st = 0f;
+    private float bt = 1f;
+    private bool OnPipe = false;
+    private bool Direction = true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -47,7 +50,7 @@ public class Fart_Boost : MonoBehaviour
         if (FartAmount > 10)
             FartAmount = 10;
         FartMeter.value = FartAmount;
-        SplineUpdate(CurrentPath, PathPos);
+        SplineUpdate(CurrentPath, PathPos, Direction);
         SliderValueSmoothAwesomeDropEffect();
         rb.angularVelocity = Mathf.Clamp(rb.angularVelocity, -maxRotationSpeed, maxRotationSpeed);
         CountDownShiftTime();
@@ -75,17 +78,30 @@ public class Fart_Boost : MonoBehaviour
         }
     }
 
-    void SplineUpdate(UnityEngine.Splines.Spline spline, Transform pipePos)
+    void SplineUpdate(UnityEngine.Splines.Spline spline, Transform pipePos, bool Direction)
     {
         if (spline == null || pipePos == null) 
         {
             st = 0;
+            bt = 0;
             bcollider.isTrigger = false;
             return;
         }
+        OnPipe = true;
         bcollider.isTrigger = true;
+        float end_value;
         // Move forward along spline
-        st += PathSpeed * Time.deltaTime / spline.GetLength();
+        if (Direction)
+        {
+            st += PathSpeed * Time.deltaTime / spline.GetLength();
+            end_value = 1f;
+        }
+        else
+        {
+            bt -= PathSpeed * Time.deltaTime / spline.GetLength();
+            st = 1 + bt;
+            end_value = 0f;
+        }
         st = Mathf.Clamp01(st);
 
         // --- Position ---
@@ -93,10 +109,19 @@ public class Fart_Boost : MonoBehaviour
         print(pos);
         transform.position = pos + pipePos.position;
         print("onspline");
-        if (st == 1)
+        if (st == end_value)
         {
-            float3 tan = spline.EvaluateTangent(st);
-            Vector3 tangent = new Vector3(tan.x, tan.y, tan.z).normalized;
+            float3 tan = spline.EvaluateTangent(end_value);
+            float offset;
+            if(Direction)
+            {
+                offset = 1;
+            }
+            else
+            {
+                offset = -1;
+            }
+            Vector3 tangent = new Vector3(offset * tan.x, offset * tan.y, tan.z).normalized;
             rb.linearVelocity = Vector3.zero;
             rb.AddForce(tangent * 10, ForceMode2D.Impulse);
             CurrentPath = null;
@@ -145,13 +170,35 @@ public class Fart_Boost : MonoBehaviour
         }
         if (other.CompareTag("PipeStart"))
         {
-            SplineContainer spline = other.GetComponentInParent<SplineContainer>();
-            CurrentPath = spline.Spline;
-            PathPos = other.transform.parent;
+            if (!OnPipe)
+            {
+                SplineContainer spline = other.GetComponentInParent<SplineContainer>();
+                CurrentPath = spline.Spline;
+                PathPos = other.transform.parent;
+                Direction = true;
+            }
         }
         if (other.CompareTag("PipeEnd"))
         {
-            StartCoroutine(AutoFart(other));
+            if (!OnPipe)
+            {
+                SplineContainer spline = other.GetComponentInParent<SplineContainer>();
+                CurrentPath = spline.Spline;
+                PathPos = other.transform.parent;
+                Direction = false;
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("PipeStart"))
+        {
+            OnPipe = false;
+        }   
+        if (other.CompareTag("PipeEnd"))
+        {
+            OnPipe = false;
         }
     }
 
