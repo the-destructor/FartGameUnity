@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      aerosoldier_poster05_0: -5339476676828055589
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

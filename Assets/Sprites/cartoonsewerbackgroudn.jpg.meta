@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cartoonsewerbackgroudn_0: 1153961721173897161
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

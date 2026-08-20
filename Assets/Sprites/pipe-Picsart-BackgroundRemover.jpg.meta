@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pipe-Picsart-BackgroundRemover_0: -1703827251342353816
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

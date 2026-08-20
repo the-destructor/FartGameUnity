@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7265187254803503357}
   m_Layer: 0
   m_Name: CollectableFuel
-  m_TagString: Untagged
+  m_TagString: CollectableFuel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -35,6 +35,7 @@ public class Fart_Boost : MonoBehaviour
     private float bt = 1f;
     private bool OnPipe = false;
     private bool Direction = true;
+    public GameObject PipeOverlay;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -76,6 +77,15 @@ public class Fart_Boost : MonoBehaviour
         {
             ShiftCoyoteTimer = ShiftCoyoteTime;
         }
+
+        TogglePipeOverlay();
+
+    }
+
+    void TogglePipeOverlay()
+    {
+        PipeOverlay.SetActive(OnPipe);
+
     }
 
     void SplineUpdate(UnityEngine.Splines.Spline spline, Transform pipePos, bool Direction)

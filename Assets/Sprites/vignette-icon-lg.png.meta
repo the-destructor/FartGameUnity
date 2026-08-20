@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: bde56a70fb07c4b4b95895e15dd05518
+guid: bad960b7a4df5b44a83ee92b8cf26393
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6233345879352450609
-    second: aerosoldier_poster04_0
+      213: 8567063030476877021
+    second: vignette-icon-lg_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: aerosoldier_poster04_0
+      name: vignette-icon-lg_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 2880
-        height: 1440
+        x: 50
+        y: 157
+        width: 1180
+        height: 966
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fc16d0bc2f4be79a0800000000000000
-      internalID: -6233345879352450609
+      spriteID: ddca4fb9f6254e670800000000000000
+      internalID: 8567063030476877021
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      aerosoldier_poster04_0: -6233345879352450609
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

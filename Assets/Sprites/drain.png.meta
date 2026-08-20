@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: bde56a70fb07c4b4b95895e15dd05518
+guid: 7e069179c6df02c4ba0bd8c401b57ba7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6233345879352450609
-    second: aerosoldier_poster04_0
+      213: -4199204927252948060
+    second: drain_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: aerosoldier_poster04_0
+      name: drain_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 2880
-        height: 1440
+        x: 19
+        y: 99
+        width: 222
+        height: 102
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fc16d0bc2f4be79a0800000000000000
-      internalID: -6233345879352450609
+      spriteID: 4ab9404fd5d69b5c0800000000000000
+      internalID: -4199204927252948060
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c0ab5a3b3160a72499915d25e5a0664a
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      aerosoldier_poster04_0: -6233345879352450609
+      drain_0: -4199204927252948060
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
