@@ -12,7 +12,7 @@ using static UnityEngine.Rendering.DebugUI;
 public class Fart_Boost : MonoBehaviour
 {
     public Camera camera1;
-    public BoxCollider2D bcollider;
+    public PolygonCollider2D bcollider;
     public Rigidbody2D rb;
     public float FartPower;
     public float maxRotationSpeed = 45;
@@ -56,7 +56,7 @@ public class Fart_Boost : MonoBehaviour
         rb.angularVelocity = Mathf.Clamp(rb.angularVelocity, -maxRotationSpeed, maxRotationSpeed);
         CountDownShiftTime();
 
-        if (Input.GetKeyDown(KeyCode.Space) && (ShiftCoyoteTimer <= 0) && FartAmount > 0)
+        if (Input.GetKeyDown(KeyCode.Space) && (ShiftCoyoteTimer <= 0) && FartAmount > 0 && !OnPipe)
         {
             rb.AddForce(MouseDirectionAsVector() * FartPower, ForceMode2D.Impulse);
             rb.AddTorque(MouseDirectionAsVector().x, ForceMode2D.Impulse);
@@ -64,9 +64,9 @@ public class Fart_Boost : MonoBehaviour
             background.value = FartAmount;
             FartAmount -= 1;
         }
-        else if (Input.GetKeyDown(KeyCode.Space) && (ShiftCoyoteTimer > 0) && FartAmount > 0)
+        else if (Input.GetKeyDown(KeyCode.Space) && (ShiftCoyoteTimer > 0) && FartAmount > 0 && !OnPipe)
         {
-            rb.AddForce(MouseDirectionAsVector() * FartPower * 10, ForceMode2D.Impulse);
+            rb.AddForce(MouseDirectionAsVector() * FartPower * 3.4f, ForceMode2D.Impulse);
             rb.AddTorque(MouseDirectionAsVector().x, ForceMode2D.Impulse);
             ultrafart.Play();
             background.value = FartAmount;
@@ -85,6 +85,9 @@ public class Fart_Boost : MonoBehaviour
     void TogglePipeOverlay()
     {
         PipeOverlay.SetActive(OnPipe);
+        if (OnPipe){
+            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        }
 
     }
 
