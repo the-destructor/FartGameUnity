@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      vignette-icon-lg_0: 8567063030476877021
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
