@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6a2f72d4d23c59c44ae14a268c23e62d
+guid: 6c1ebb54ac592ba4d8c60bd3d63b3d6f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7315913006856515389
-    second: toilet1_0
+      213: -1827891636115937905
+    second: noexpectations_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: toilet1_0
+      name: noexpectations_0
       rect:
         serializedVersion: 2
-        x: 143
-        y: 46
-        width: 259
-        height: 447
+        x: 3
+        y: 1
+        width: 732
+        height: 299
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d3fa75d4e18578560800000000000000
-      internalID: 7315913006856515389
+      spriteID: f85e665dd3602a6e0800000000000000
+      internalID: -1827891636115937905
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 6cc36f11c1d212f42a2ad3136ae3dcf6
+    spriteID: 52e1e00ffd9b90147a3ac55cd6e425d3
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      toilet1_0: 7315913006856515389
+      noexpectations_0: -1827891636115937905
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

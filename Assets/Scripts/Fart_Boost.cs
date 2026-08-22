@@ -7,6 +7,8 @@ using UnityEngine.Splines;
 using UnityEngine.U2D;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+using System.Collections.Generic;
+using TMPro;
 using static UnityEngine.Rendering.DebugUI;
 
 public class Fart_Boost : MonoBehaviour
@@ -22,6 +24,7 @@ public class Fart_Boost : MonoBehaviour
     private float ShiftCoyoteTimer = 0;
     public UnityEngine.UI.Slider FartMeter;
     public float InitialFartAmount = 10;
+    public float StartFartAmount = 10;
     private float FartAmount;
     public UnityEngine.UI.Slider background;
     private float DampVelocity = 0;
@@ -36,13 +39,15 @@ public class Fart_Boost : MonoBehaviour
     private bool OnPipe = false;
     private bool Direction = true;
     public GameObject PipeOverlay;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         FartMeter.maxValue = InitialFartAmount;
-        FartAmount = InitialFartAmount;
+        FartAmount = StartFartAmount;
         background.maxValue = InitialFartAmount;
         spawn_position = transform.position;
+
     }
 
     // Update is called once per frame
@@ -66,7 +71,7 @@ public class Fart_Boost : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Space) && (ShiftCoyoteTimer > 0) && FartAmount > 0 && !OnPipe)
         {
-            rb.AddForce(MouseDirectionAsVector() * FartPower * 3.4f, ForceMode2D.Impulse);
+            rb.AddForce(MouseDirectionAsVector() * FartPower * 4f, ForceMode2D.Impulse);
             rb.AddTorque(MouseDirectionAsVector().x, ForceMode2D.Impulse);
             ultrafart.Play();
             background.value = FartAmount;
@@ -76,6 +81,11 @@ public class Fart_Boost : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             ShiftCoyoteTimer = ShiftCoyoteTime;
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            DeathFunction();
         }
 
         TogglePipeOverlay();
@@ -90,6 +100,7 @@ public class Fart_Boost : MonoBehaviour
         }
 
     }
+
 
     void SplineUpdate(UnityEngine.Splines.Spline spline, Transform pipePos, bool Direction)
     {
@@ -125,18 +136,14 @@ public class Fart_Boost : MonoBehaviour
         if (st == end_value)
         {
             float3 tan = spline.EvaluateTangent(end_value);
-            float offset;
-            if(Direction)
-            {
-                offset = 1;
-            }
-            else
-            {
-                offset = -1;
-            }
-            Vector3 tangent = new Vector3(offset * tan.x, offset * tan.y, tan.z).normalized;
-            rb.linearVelocity = Vector3.zero;
-            rb.AddForce(tangent * 10, ForceMode2D.Impulse);
+            Vector3 tangent = pipePos.TransformDirection( new Vector3(tan.x, tan.y, tan.z) ).normalized;
+            if (!Direction){
+                tangent = -tangent;}
+            print(tangent);
+            Vector2 force = new Vector2(tangent.x , tangent.y);
+
+            rb.linearVelocity = Vector2.zero;
+            rb.AddForce(force * 10f, ForceMode2D.Impulse);
             CurrentPath = null;
             PathPos = null;
         }
@@ -173,7 +180,12 @@ public class Fart_Boost : MonoBehaviour
             background.value = FartAmount;
             Destroy(other.gameObject);
         }
-        if (other.CompareTag("Kill"))
+        if (other.CompareTag("Win"))
+        {
+            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene(currentSceneIndex+1);
+        }
+        if (other.CompareTag("Kill") && !OnPipe)
         {
             DeathFunction();
         }
@@ -224,6 +236,8 @@ public class Fart_Boost : MonoBehaviour
         FartMeter.maxValue = InitialFartAmount;
         FartAmount = InitialFartAmount;
         background.maxValue = InitialFartAmount;
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex);
     }
 
     private IEnumerator AutoFart(Collider2D other)
@@ -234,7 +248,7 @@ public class Fart_Boost : MonoBehaviour
         rb.gravityScale = Mathf.Lerp(rb.gravityScale, 0f, slowdownspeed);
         yield return new WaitForSeconds(0.2f);
         rb.gravityScale = 1f;
-        rb.AddForce(MouseDirectionAsVector() * FartPower * 10, ForceMode2D.Impulse);
+        rb.AddForce(MouseDirectionAsVector() * FartPower * 4, ForceMode2D.Impulse);
         rb.AddTorque(MouseDirectionAsVector().x, ForceMode2D.Impulse);
         ultrafart.Play();
     }

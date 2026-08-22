@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6a2f72d4d23c59c44ae14a268c23e62d
+guid: 20748b9777258c1469c890fe7e30b784
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7315913006856515389
-    second: toilet1_0
+      213: -7882601638406717764
+    second: ForegroundPipe1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: toilet1_0
+      name: ForegroundPipe1_0
       rect:
         serializedVersion: 2
-        x: 143
-        y: 46
-        width: 259
-        height: 447
+        x: 269
+        y: 0
+        width: 311
+        height: 2000
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d3fa75d4e18578560800000000000000
-      internalID: 7315913006856515389
+      spriteID: cbefadcd29f5b9290800000000000000
+      internalID: -7882601638406717764
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 6cc36f11c1d212f42a2ad3136ae3dcf6
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      toilet1_0: 7315913006856515389
+      ForegroundPipe1_0: -7882601638406717764
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
