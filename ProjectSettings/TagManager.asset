@@ -10,6 +10,7 @@ TagManager:
   - PipeStart
   - PipeEnd
   - Win
+  - CameraBeginsToFollow
   layers:
   - Default
   - TransparentFX

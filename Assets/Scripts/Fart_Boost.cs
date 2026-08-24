@@ -9,6 +9,7 @@ using UnityEngine.UI;
 using UnityEngine.UIElements;
 using System.Collections.Generic;
 using TMPro;
+using Unity.Cinemachine;
 using static UnityEngine.Rendering.DebugUI;
 
 public class Fart_Boost : MonoBehaviour
@@ -39,6 +40,7 @@ public class Fart_Boost : MonoBehaviour
     private bool OnPipe = false;
     private bool Direction = true;
     public GameObject PipeOverlay;
+    public CinemachineCamera cinemaMachine;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -69,7 +71,7 @@ public class Fart_Boost : MonoBehaviour
             background.value = FartAmount;
             FartAmount -= 1;
         }
-        else if (Input.GetKeyDown(KeyCode.Space) && (ShiftCoyoteTimer > 0) && FartAmount > 0 && !OnPipe)
+        else if (Input.GetKeyDown(KeyCode.Space) && (ShiftCoyoteTimer > 0) && FartAmount >= 2 && !OnPipe)
         {
             rb.AddForce(MouseDirectionAsVector() * FartPower * 4f, ForceMode2D.Impulse);
             rb.AddTorque(MouseDirectionAsVector().x, ForceMode2D.Impulse);
@@ -213,6 +215,21 @@ public class Fart_Boost : MonoBehaviour
                 Direction = false;
             }
         }
+        if (other.CompareTag("CameraBeginsToFollow"))
+        {
+            SetCameraTarget(transform);
+        }
+    }
+
+    public void SetCameraTarget(Transform newTarget)
+    {
+        CameraTarget tempTarget = cinemaMachine.Target;
+
+        tempTarget.TrackingTarget = newTarget;
+
+        tempTarget.LookAtTarget = newTarget;
+
+        cinemaMachine.Target = tempTarget;
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -229,13 +246,6 @@ public class Fart_Boost : MonoBehaviour
 
     private void DeathFunction()
     {
-        transform.position = spawn_position;
-        transform.rotation = Quaternion.identity;
-        rb.linearVelocity = Vector2.zero;
-        rb.angularVelocity = 0f;
-        FartMeter.maxValue = InitialFartAmount;
-        FartAmount = InitialFartAmount;
-        background.maxValue = InitialFartAmount;
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
     }
