@@ -41,6 +41,8 @@ public class Fart_Boost : MonoBehaviour
     private bool Direction = true;
     public GameObject PipeOverlay;
     public CinemachineCamera cinemaMachine;
+    public float GasUsed = 0f;
+    public TextMeshProUGUI GasUsedText;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -49,12 +51,14 @@ public class Fart_Boost : MonoBehaviour
         FartAmount = StartFartAmount;
         background.maxValue = InitialFartAmount;
         spawn_position = transform.position;
+        GasUsed = 0f;
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        GasUsedText.text = GasUsed.ToString();
         if (FartAmount > 10)
             FartAmount = 10;
         FartMeter.value = FartAmount;
@@ -70,6 +74,7 @@ public class Fart_Boost : MonoBehaviour
             regfart.Play();
             background.value = FartAmount;
             FartAmount -= 1;
+            GasUsed += 1;
         }
         else if (Input.GetKeyDown(KeyCode.Space) && (ShiftCoyoteTimer > 0) && FartAmount >= 2 && !OnPipe)
         {
@@ -78,6 +83,7 @@ public class Fart_Boost : MonoBehaviour
             ultrafart.Play();
             background.value = FartAmount;
             FartAmount -= 2;
+            GasUsed += 2;
         }
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
