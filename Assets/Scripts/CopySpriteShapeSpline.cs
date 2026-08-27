@@ -51,6 +51,10 @@ public class CopySpriteShapeSpline : MonoBehaviour
             targetSpline.Clear();
 
             int count = sourceSpline.GetPointCount();
+            for (int i = 0; i < count; i++)
+            {
+                sourceSpline.SetHeight(i, 4f);
+            }
 
             for (int i = 0; i < count; i++)
             {
