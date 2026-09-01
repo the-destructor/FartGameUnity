@@ -11,6 +11,8 @@ TagManager:
   - PipeEnd
   - Win
   - CameraBeginsToFollow
+  - CollectableRocket
+  - Air
   layers:
   - Default
   - TransparentFX

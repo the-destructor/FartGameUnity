@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a08b257c9e744ac43856331f21260066
+guid: 7f99eaf199dd6e047abf51ca9eec0714
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3313918388143075236
-    second: jalapeno_0
+      213: -7127193123590645955
+    second: blade_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: jalapeno_0
+      name: blade_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 2
-        width: 549
-        height: 550
+        x: 365
+        y: 27
+        width: 79
+        height: 529
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4af27e357376dfd20800000000000000
-      internalID: 3313918388143075236
+      spriteID: d37d5c69d9f171d90800000000000000
+      internalID: -7127193123590645955
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: bf0940d01e628964c8620a0d95d3e312
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      jalapeno_0: 3313918388143075236
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

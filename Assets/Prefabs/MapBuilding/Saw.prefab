@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1038485406356682677}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.699997, y: -1.1000004, z: 0}
+  m_LocalPosition: {x: -3, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -176,7 +176,7 @@ MonoBehaviour:
         y: 0
         z: 0
       TangentOut:
-        x: 0
+        x: 2
         y: 0
         z: 0
       Rotation:
@@ -190,8 +190,8 @@ MonoBehaviour:
         y: 0
         z: 0
       TangentIn:
-        x: 0
-        y: 0
+        x: -2
+        y: -0.00000017484555
         z: 0
       TangentOut:
         x: 0
@@ -437,9 +437,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4574061106094369133}
   - component: {fileID: 2311043553014983817}
+  - component: {fileID: 6291941488143634428}
   m_Layer: 0
   m_Name: SawBlade
-  m_TagString: Untagged
+  m_TagString: Kill
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -487,4 +488,40 @@ MonoBehaviour:
       m_Data: []
   PathObject: {fileID: 1253117230486137583}
   PathPos: {fileID: 4710132804235813170}
-  PathSpeed: 10
+  PathSpeed: 27
+--- !u!58 &6291941488143634428
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3152320142169091114}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 4.5

@@ -44,6 +44,14 @@ public class Fart_Boost : MonoBehaviour
     public float GasUsed = 0f;
     public TextMeshProUGUI GasUsedText;
 
+    public bool RocketMode = false;
+
+    public bool InAir = false;
+    public Vector2 AirDirection;
+
+    public AudioSource fartSound;
+    public AudioSource rocketSound;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -67,7 +75,7 @@ public class Fart_Boost : MonoBehaviour
         rb.angularVelocity = Mathf.Clamp(rb.angularVelocity, -maxRotationSpeed, maxRotationSpeed);
         CountDownShiftTime();
 
-        if (Input.GetKeyDown(KeyCode.Space) && (ShiftCoyoteTimer <= 0) && FartAmount > 0 && !OnPipe)
+        if (Input.GetKeyDown(KeyCode.Space) && (ShiftCoyoteTimer <= 0) && FartAmount > 0 && !OnPipe && !RocketMode)
         {
             rb.AddForce(MouseDirectionAsVector() * FartPower, ForceMode2D.Impulse);
             rb.AddTorque(MouseDirectionAsVector().x, ForceMode2D.Impulse);
@@ -75,8 +83,9 @@ public class Fart_Boost : MonoBehaviour
             background.value = FartAmount;
             FartAmount -= 1;
             GasUsed += 1;
+            fartSound.Play();
         }
-        else if (Input.GetKeyDown(KeyCode.Space) && (ShiftCoyoteTimer > 0) && FartAmount >= 2 && !OnPipe)
+        else if (Input.GetKeyDown(KeyCode.Space) && (ShiftCoyoteTimer > 0) && FartAmount >= 2 && !OnPipe && !RocketMode)
         {
             rb.AddForce(MouseDirectionAsVector() * FartPower * 4f, ForceMode2D.Impulse);
             rb.AddTorque(MouseDirectionAsVector().x, ForceMode2D.Impulse);
@@ -84,7 +93,9 @@ public class Fart_Boost : MonoBehaviour
             background.value = FartAmount;
             FartAmount -= 2;
             GasUsed += 2;
+            fartSound.Play();
         }
+        
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
@@ -100,6 +111,29 @@ public class Fart_Boost : MonoBehaviour
 
     }
 
+
+    void FixedUpdate()
+    {
+        if (FartAmount > 0 && !OnPipe && RocketMode)
+        {
+            rb.AddForce(MouseDirectionAsVector() * FartPower * 4f, ForceMode2D.Force);
+            rb.AddTorque(MouseDirectionAsVector().x, ForceMode2D.Force);
+            ultrafart.Play();
+            background.value = FartAmount;
+            FartAmount -= 0.02f;
+            GasUsed += 0.02f;
+            if (!rocketSound.isPlaying)
+            {
+                rocketSound.Play();
+            }
+        }
+
+        if(InAir)
+        {
+            rb.AddForce(AirDirection * FartPower * 4f, ForceMode2D.Force);
+            rb.AddTorque(AirDirection.x, ForceMode2D.Force);
+        }
+    }
     void TogglePipeOverlay()
     {
         PipeOverlay.SetActive(OnPipe);
@@ -225,6 +259,23 @@ public class Fart_Boost : MonoBehaviour
         {
             SetCameraTarget(transform);
         }
+        if (other.CompareTag("CollectableRocket"))
+        {
+            RocketMode = true;
+            Destroy(other.gameObject);
+        }
+        if(other.CompareTag("Air"))
+        {
+            float zRotation = other.transform.eulerAngles.z;
+
+            float radian = zRotation * Mathf.Deg2Rad;
+
+            float x = Mathf.Sin(radian);
+            float y = Mathf.Cos(radian);
+
+            AirDirection = new Vector2(x, y).normalized;
+            InAir = true;
+        }
     }
 
     public void SetCameraTarget(Transform newTarget)
@@ -247,6 +298,11 @@ public class Fart_Boost : MonoBehaviour
         if (other.CompareTag("PipeEnd"))
         {
             OnPipe = false;
+        }
+        if (other.CompareTag("Air"))
+        {
+            AirDirection = Vector2.zero;
+            InAir = false;
         }
     }
 

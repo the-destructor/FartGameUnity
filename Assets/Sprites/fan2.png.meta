@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a08b257c9e744ac43856331f21260066
+guid: 63983645d2804554f8d6db65bc8062ea
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3313918388143075236
-    second: jalapeno_0
+      213: -3452798880926501847
+    second: fan2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: jalapeno_0
+      name: fan2_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 2
-        width: 549
-        height: 550
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 23
+        y: 400
+        width: 1086
+        height: 357
+      alignment: 9
+      pivot: {x: 0.5273626, y: 0.1358363}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4af27e357376dfd20800000000000000
-      internalID: 3313918388143075236
+      spriteID: 924728526b13510d0800000000000000
+      internalID: -3452798880926501847
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: bf0940d01e628964c8620a0d95d3e312
+    spriteID: 5ec486d3a3f5c8d4f83315cf447177c9
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      jalapeno_0: 3313918388143075236
+      fan2_0: -3452798880926501847
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: a08b257c9e744ac43856331f21260066
+guid: 4c99ef882f7606b45b62769a2fe78599
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3313918388143075236
-    second: jalapeno_0
+      213: 2986702224396221773
+    second: LockAndKey_0
+  - first:
+      213: 3643462406527953625
+    second: LockAndKey_1
+  - first:
+      213: -784135237563643610
+    second: LockAndKey_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +106,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: jalapeno_0
+      name: LockAndKey_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 2
-        width: 549
-        height: 550
+        x: 365
+        y: 120
+        width: 138
+        height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4af27e357376dfd20800000000000000
-      internalID: 3313918388143075236
+      spriteID: d4d710f49d5e27920800000000000000
+      internalID: 2986702224396221773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LockAndKey_1
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 208
+        width: 39
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9daa69d31cd209230800000000000000
+      internalID: 3643462406527953625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LockAndKey_2
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 154
+        width: 90
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 629072de7213e15f0800000000000000
+      internalID: -784135237563643610
       vertices: []
       indices: 
       edges: []
@@ -125,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: bf0940d01e628964c8620a0d95d3e312
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -134,8 +184,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      jalapeno_0: 3313918388143075236
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
