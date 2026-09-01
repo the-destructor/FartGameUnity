@@ -1,15 +1,16 @@
 using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using Unity.Cinemachine;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.Splines;
 using UnityEngine.U2D;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
-using System.Collections.Generic;
-using TMPro;
-using Unity.Cinemachine;
 using static UnityEngine.Rendering.DebugUI;
 
 public class Fart_Boost : MonoBehaviour
@@ -51,6 +52,8 @@ public class Fart_Boost : MonoBehaviour
 
     public AudioSource fartSound;
     public AudioSource rocketSound;
+
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -95,7 +98,22 @@ public class Fart_Boost : MonoBehaviour
             GasUsed += 2;
             fartSound.Play();
         }
-        
+
+        if (Input.GetKeyDown(KeyCode.RightControl))
+        {
+            PersistentObject.PlayerAudioPlaying = !PersistentObject.PlayerAudioPlaying;
+        }
+
+        if (PersistentObject.PlayerAudioPlaying)
+        {
+            fartSound.volume = 0.06f;
+            rocketSound.volume = 0.06f;
+        }
+        else
+        {
+            fartSound.volume = 0;
+            rocketSound.volume = 0;
+        }
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
@@ -264,7 +282,12 @@ public class Fart_Boost : MonoBehaviour
             RocketMode = true;
             Destroy(other.gameObject);
         }
-        if(other.CompareTag("Air"))
+        if (other.CompareTag("CollectableMilk"))
+        {
+            RocketMode = false;
+            Destroy(other.gameObject);
+        }
+        if (other.CompareTag("Air"))
         {
             float zRotation = other.transform.eulerAngles.z;
 
@@ -323,5 +346,6 @@ public class Fart_Boost : MonoBehaviour
         rb.AddForce(MouseDirectionAsVector() * FartPower * 4, ForceMode2D.Impulse);
         rb.AddTorque(MouseDirectionAsVector().x, ForceMode2D.Impulse);
         ultrafart.Play();
+        fartSound.Play();
     }
 }

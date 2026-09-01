@@ -16,7 +16,7 @@ public class FollowPathSpline : MonoBehaviour
         SplineContainer PathContainer = PathObject.GetComponent<SplineContainer>();
         Path = PathContainer.Spline;
         float totalTime = Path.GetLength() / (float)PathSpeed;
-        float bouncedValue = Mathf.PingPong(Time.time / totalTime, 1f);
+        float bouncedValue = Mathf.PingPong(Time.timeSinceLevelLoad / totalTime, 1f);
 
         st = Mathf.Clamp01(bouncedValue);
         print(st);

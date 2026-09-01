@@ -13,6 +13,7 @@ TagManager:
   - CameraBeginsToFollow
   - CollectableRocket
   - Air
+  - CollectableMilk
   layers:
   - Default
   - TransparentFX
