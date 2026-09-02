@@ -1,5 +1,7 @@
 using Unity.VisualScripting;
+using UnityEditor.AdaptivePerformance.Editor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class OpeningSequence : MonoBehaviour
 {
@@ -23,9 +25,13 @@ public class OpeningSequence : MonoBehaviour
 
     public float smoothTime = 0.3f;
 
+    public GameObject Canvas;
+    public Slider slider;
+
 
     void Start()
     {
+        Canvas.SetActive(true);
         targetTop = new Vector3(Top.position.x, finalTop, 0);
         targetBottom = new Vector3(Bottom.position.x, finalTop, 0);
     }
@@ -33,7 +39,18 @@ public class OpeningSequence : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Top.position = Vector3.SmoothDamp(Top.position, targetTop, ref topV, smoothTime);
-        Bottom.position = Vector3.SmoothDamp(Bottom.position, targetBottom, ref bottomV, smoothTime);
+
+        if (PersistentObject.CompletedLoading)
+        {
+            Canvas.SetActive(false);
+            Top.position = Vector3.SmoothDamp(Top.position, targetTop, ref topV, smoothTime);
+            Bottom.position = Vector3.SmoothDamp(Bottom.position, targetBottom, ref bottomV, smoothTime);
+        }
+        else
+        {
+            Canvas.SetActive(true);
+            slider.maxValue = PersistentObject.FileCount;
+            slider.value = PersistentObject.FilesLoaded;
+        }
     }
 }
