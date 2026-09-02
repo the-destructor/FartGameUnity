@@ -40,15 +40,7 @@ public class PersistentObject : MonoBehaviour
 
         string musicPath = Path.Combine(Application.streamingAssetsPath, "Music");
 
-        if (Directory.Exists(musicPath))
-        {
-            musicFiles = Directory.GetFiles(musicPath, "*.mp3");
-            StartCoroutine(LoadMusic());
-        }
-        else
-        {
-            Debug.LogError("Music folder not found: " + musicPath);
-        }
+        StartCoroutine(LoadMusic());
 
 
     }
@@ -94,32 +86,41 @@ public class PersistentObject : MonoBehaviour
 
     IEnumerator LoadMusic()
     {
-        musicTracks = new AudioClip[musicFiles.Length];
-        FileCount = musicFiles.Length;
-        for (int i = 0; i < musicFiles.Length; i++)
+        string manifestUrl = Path.Combine(Application.streamingAssetsPath, "Music/music_manifest.txt");
+
+        UnityWebRequest manifestRequest = UnityWebRequest.Get(manifestUrl);
+        yield return manifestRequest.SendWebRequest();
+
+        if (manifestRequest.result != UnityWebRequest.Result.Success)
         {
-            string filePath = musicFiles[i];
-
-            // Convert the file path into a URI that UnityWebRequest can use.
-            string url = "file://" + filePath;
-
-            using (UnityWebRequest request = UnityWebRequestMultimedia.GetAudioClip(
-                url,
-                AudioType.MPEG))
-            {
-                yield return request.SendWebRequest();
-
-                if (request.result != UnityWebRequest.Result.Success)
-                {
-                    Debug.LogError("Failed to load music: " + filePath +
-                                   "\n" + request.error);
-                    continue;
-                }
-
-                musicTracks[i] = DownloadHandlerAudioClip.GetContent(request);
-            }
-            FilesLoaded += 1;
+            Debug.LogError("Failed to load manifest: " + manifestRequest.error);
+            CompletedLoading = true;
+            yield break;
         }
+
+        string[] files = manifestRequest.downloadHandler.text.Split('\n');
+        musicTracks = new AudioClip[files.Length];
+
+        FileCount = files.Length;
+
+        for (int i = 0; i < files.Length; i++)
+        {
+            string fileName = files[i].Trim();
+            string url = Path.Combine(Application.streamingAssetsPath, "Music/" + fileName);
+
+            UnityWebRequest request = UnityWebRequestMultimedia.GetAudioClip(url, AudioType.MPEG);
+            yield return request.SendWebRequest();
+
+            if (request.result != UnityWebRequest.Result.Success)
+            {
+                Debug.LogError("Failed to load: " + fileName + " | " + request.error);
+                continue;
+            }
+
+            musicTracks[i] = DownloadHandlerAudioClip.GetContent(request);
+            FilesLoaded++;
+        }
+
         CompletedLoading = true;
         PlayNextRandomSong();
     }
